@@ -24,14 +24,19 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService.getProducts().subscribe( res =>{
+   
+    this.productService.getProducts().subscribe({
+      next: (res) => {
+        
+        this.products = res;
 
-      this.products = res;
-      
-    }, error =>{
-
-      console.log('Oops! ocurrio un error al obtener los productos', error);
-      
+      },
+      error: (error) => {
+        console.log('Oops!, ocurio un error al obtener los datos', error);
+      },
+      complete: () => {
+        console.log('Productos obtenidos correctamente'); 
+      }
     });
   }
 
