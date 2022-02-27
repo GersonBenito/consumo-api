@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
 import { Product } from 'src/interfaces/product.interface';
 
@@ -10,6 +10,9 @@ import { Product } from 'src/interfaces/product.interface';
 export class ProductService {
 
   private url: string = env.urlBase;
+  
+  public dataProduct = new BehaviorSubject<number>(0);
+  
 
   constructor( private http: HttpClient ) { }
 
@@ -17,6 +20,10 @@ export class ProductService {
 
     return this.http.get<Product[]>(this.url);
     
+  }
+
+  getProductById(id: number): Observable<Product>{
+    return this.http.get<Product>(`${this.url}/${id}`);
   }
 
 }
