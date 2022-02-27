@@ -4,11 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './components/products/products.component';
 import { CategoryComponent } from './components/category/category.component';
 import { NotFoundComponent } from './components/notFound/not-found.component';
+import { DetailProductComponent } from './components/detail/detail-product.component';
 
 const router: Routes = [
   { path: '', component: ProductsComponent },
   { path: 'category', component: CategoryComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: 'detail/:id', component: DetailProductComponent },
+  { path: '**', component: NotFoundComponent },
+  { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,0 +1,90 @@
+.container-detail{
+    background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 50% 35%;
+    padding: 20px;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-product{
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-product img{
+    width: 350px;
+    object-fit: contain;
+}
+
+.title p{
+    color: #000000;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    line-height: 35px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.category p{
+    color: #000000;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 20px;
+    font-family: 'Red Rose', cursive;
+}
+
+.price p{
+    color: #000000;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 45px;
+    font-family: 'Red Rose', cursive;
+    margin-bottom: 0px;
+}
+
+.price span{
+    color: #000000;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 45px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.description p{
+    color: #000000;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Red Rose', cursive;
+}
+
+.cart{
+    background-color: #000000;
+    border-radius: 0px;
+}
+
+.buy{
+    background-color: #FFFFFF;
+    border-radius: 0px;
+    border: 1px solid #000000;
+}
+
+/* reescribir de la libreria NZ-ZORRO */
+:host::ng-deep .ant-rate{
+    color: #ffca08;
+}
+
+@media screen and (max-width: 768px) {
+    .container-detail{
+        grid-template-columns: 100%;
+        gap: 0px;
+    }
+    .imagen-product{
+        margin-bottom: 20px;
+    }
+}

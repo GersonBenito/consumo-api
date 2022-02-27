@@ -1,0 +1,29 @@
+<div class="container-detail">
+    <div class="imagen-product">
+        <img src="{{ product.image }}" alt="img">
+    </div>
+    <div class="detail">
+        <div class="title">
+            <p>{{ product.title }}</p>
+        </div>
+        <div class="category">
+            <p>{{ product.category | uppercase }}</p>
+        </div>
+        <div class="rating">
+            <p>
+                <nz-rate [ngModel]="product.rating.rate" [nzDisabled]="true"></nz-rate> 
+                <span>( {{product.rating.count}} rating )</span>
+            </p>
+        </div>
+        <div class="price">
+            <p>PRICE: <span>{{ product.price | currency: 'USD' }}</span></p>
+        </div>
+        <div class="description">
+            <p>{{ product.description }}</p>
+        </div>
+        <div class="container-button">
+            <button class="btn btn-dark btn-block cart">Add to cart</button>
+            <button class="btn btn-light btn-block buy">Buy now</button>
+        </div>
+    </div>
+</div>
