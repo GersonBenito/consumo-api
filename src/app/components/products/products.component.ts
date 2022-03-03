@@ -15,7 +15,18 @@ export class ProductsComponent implements OnInit {
 
     private productService: ProductService,
 
-  ) { }
+  ) {
+    this.productService.category.subscribe({
+      next: category =>{
+        console.log('categoria', category);
+        this.getProductByCategory(category);
+      },
+      error: error => {
+        console.log('error', error);
+        
+      }
+    });
+   }
 
   ngOnInit(): void {
 
@@ -36,6 +47,22 @@ export class ProductsComponent implements OnInit {
       },
       complete: () => {
         console.log('Productos obtenidos correctamente'); 
+      }
+    });
+  }
+
+  getProductByCategory(category: string): void{
+    this.productService.getProductByCategory(category).subscribe({
+      next: res =>{
+        console.log('resultado', res);
+        this.products = res;
+      },
+      error: error =>{
+        console.log('error', error);
+        
+      },
+      complete: () =>{
+        // funcion
       }
     });
   }

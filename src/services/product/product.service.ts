@@ -10,6 +10,7 @@ import { Product } from 'src/interfaces/product.interface';
 export class ProductService {
 
   private url: string = env.urlBase;
+  public category = new BehaviorSubject<string>('');
   
   public dataProduct = new BehaviorSubject<number>(0);
   
@@ -24,6 +25,10 @@ export class ProductService {
 
   getProductById(id: string | null): Observable<Product>{
     return this.http.get<Product>(`${this.url}/${id}`);
+  }
+
+  getProductByCategory(category: string): Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.url}/category/${category}`);
   }
 
 }

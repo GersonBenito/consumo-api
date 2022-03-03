@@ -1,1 +1,4 @@
-<p>category works!</p>
+<select class="form-control"[(ngModel)]="category" (change)="getCategory()">
+    <option>Seleccione una categoria</option>
+    <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+</select>

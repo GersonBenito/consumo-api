@@ -1,11 +1,12 @@
-<div class="conteinerProducts p-3">
+<div class="conteiner_products p-3">
     <div class="title">
         <h1>Lista de Productos</h1>
     </div>
-    <div class="search">
-        <input type="text" class="form-control">
+    <div class="container_action">
+        <app-search [products]="products" ></app-search>
+        <app-category></app-category>
     </div>
-    <div class="conatinerCards mt-3">
+    <div class="conatiner_cards mt-3">
         <app-product *ngFor="let prod of products" [product]="prod" ></app-product>
     </div>
 </div>
